@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title data-locale="extensionTitle"></title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div id="mainscreen">
+			<div class="header">
+				<div class="header-left">
+					<span id="avatar"></span>
+					<div>
+						<h3 id="username"></h3>
+						<span id="plan"></span>
+					</div>
+				</div>
+				<div class="header-right" id="menu">
+					<a href="#" id="accountLink" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a>
+					<a href="#" id="settings"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></a>
+					<a href="#" id="logout"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></a>
+				</div>
+			</div>
+			<div class="mainbody">
+				<div class="tabs">
+					<button class="tablink active" id="shorten" data-locale="shortenTab"></button>
+					<button class="tablink" id="links" data-locale="linksTab"></button>
+				</div>
+
+				<div id="shortenContainer" class="tabcontent" style="display:block">
+					<form id="shorten-form">
+						<p id="errorMsg" class="errorMsg"></p>
+
+						<label for="longUrl" data-locale="longUrlLabel"></label>
+						<input type="text" id="longUrl" name="longurl">
+
+						<label for="brandedDomain" data-locale="brandedDomainLabel"></label>
+						<select id="brandedDomain" name="brandedDomain">
+						</select>
+
+						<label for="customAlias" data-locale="customAliasLabel"></label>
+						<input type="text" id="customAlias" name="customAlias">
+
+						<button type="submit" data-locale="shortenButton"></button>
+					</form>
+					<div id="resultLink">
+						<a href="#shorten-form" id="backlink" data-locale="backToShortener"></a>
+						<label for="shortlink" data-locale="shortLinkLabel"></label>
+						<div class="shortlink-container">
+							<input type="text" id="shortlink" readonly>
+							<button id="copyButton" class="copy-button" data-locale="copyButton"></button>
+						</div>
+					</div>
+				</div>
+				<div id="linksContainer" class="tabcontent">
+					<p id="linkerrorMsg" class="errorMsg"></p>
+					<div id="linkList"></div>
+				</div>
+				<div id="settingsContainer" class="tabcontent">
+					<p id="settingsMessage"></p>
+					<form id="settings-form">
+						<label for="apiKey" data-locale="apiKeyLabel"></label>
+						<input type="text" id="apiKey" name="apiKey" required>
+						<button type="submit" data-locale="saveApiKeyButton"></button>
+					</form>
+				</div>
+				<div id="logoutContainer" class="tabcontent">
+					<p><strong data-locale="logoutConfirm"></strong></p>
+					<button type="button" class="btn" id="cancelBtn" data-locale="cancel"></button>
+					<button type="button" class="btn btn-danger" id="logoutBtn" data-locale="logout"></button>
+				</div>
+				<div class="footer">
+					<a href="#" target="_blank" id="footerLink">
+						<img src="icon128.png" alt="Logo"> <span data-locale="poweredBy"></span> &nbsp;<span data-locale="extensionTitle"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div id="loginscreen" style="display:none">
+			<div class="header">
+				<div class="header-left">
+					<img src="icon128.png" alt="Logo" class="logo">
+					<h2 data-locale="extensionTitle"></h2>
+				</div>
+			</div>
+			<div class="mainbody">
+				<h3 data-locale="loginPlease"></h3>
+				<a href="https://shotcut.in/developers" target="_blank" >Get Your API Keys From Here!</a>
+				<p class="text" data-locale="loginInfo"></p>
+				<div id="loginMessage" class="errorMsg"></div>
+				<form id="login-form">
+					<label for="apiKey" data-locale="apiKeyLabel"></label>
+					<input type="text" id="loginapiKey" name="apiKey" required>
+					<button type="submit" data-locale="login"></button>
+				</form>
+			</div>
+		</div>
+		<script src="locale.js"></script>
+		<script src="core.js"></script>
+	</body>
+</html>
